@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotaLift", "TotaLift\TotaLift\TotaLift.csproj", "{A19BB19B-4ED5-4C06-B021-9CE8C81B071A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotaLift.Client", "TotaLift\TotaLift.Client\TotaLift.Client.csproj", "{D41006B4-FE74-4399-81E5-EBC0A7FC36F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A19BB19B-4ED5-4C06-B021-9CE8C81B071A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19BB19B-4ED5-4C06-B021-9CE8C81B071A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19BB19B-4ED5-4C06-B021-9CE8C81B071A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19BB19B-4ED5-4C06-B021-9CE8C81B071A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41006B4-FE74-4399-81E5-EBC0A7FC36F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41006B4-FE74-4399-81E5-EBC0A7FC36F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41006B4-FE74-4399-81E5-EBC0A7FC36F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41006B4-FE74-4399-81E5-EBC0A7FC36F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFBFC3A5-5440-448B-8043-2B0759945AF2}
+	EndGlobalSection
+EndGlobal
