@@ -1,0 +1,78 @@
+﻿@page "/"
+@using TotaLift.Client.Models
+@rendermode InteractiveWebAssembly
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-4">
+    <MudCard>
+        <MudCardContent>
+            <h3>Fuel Consumption Calculator</h3>
+            <br />
+            <!-- Input Fields with Spacing -->
+            <MudGrid>
+                <MudItem xs="12" sm="6"> 
+                    <MudTextField @bind-Value="FuelCalculatorModel.Liters" Label="Liters burned"
+                                  Variant="Variant.Filled" Placeholder="Enter liters" Type="number"
+                                  Class="mb-2" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="FuelCalculatorModel.Distance" Label="Distance (km)"
+                                  Variant="Variant.Filled" Placeholder="Enter distance" Type="number"
+                                  Class="mb-2" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="FuelCalculatorModel.TotalCost" Label="Total cost (€)"
+                                  Variant="Variant.Filled" Placeholder="Enter cost" Type="number"
+                                  Class="mb-2" />
+                </MudItem>
+            </MudGrid>
+
+            <!-- Calculate Button -->
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit"
+                       OnClick="CalculateConsumption" Class="my-4">
+                Calculate
+            </MudButton>
+
+            <!-- Results Section -->
+            @if (isCalculationPerformed)
+            {
+                <MudDivider Class="my-4" />
+                <MudGrid>
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.subtitle1">Fuel Consumption (liters/100km)</MudText>
+                    </MudItem>
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.subtitle1">@FuelCalculatorModel.FuelConsumptionPer100Km</MudText>
+                    </MudItem>
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.subtitle1">Cost per 100km (€)</MudText>
+                    </MudItem>
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.subtitle1">@FuelCalculatorModel.CostPer100Km</MudText>
+                    </MudItem>
+                </MudGrid>
+            }
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+    private FuelCalculatorModel FuelCalculatorModel = new();
+    private bool isCalculationPerformed = false;
+
+    private void CalculateConsumption()
+    {
+        if (FuelCalculatorModel.Distance > 0 && FuelCalculatorModel.Liters > 0 && FuelCalculatorModel.TotalCost > 0)
+        {
+            FuelCalculatorModel.FuelConsumptionPer100Km = (FuelCalculatorModel.Liters / FuelCalculatorModel.Distance) * 100;
+            var costPerLiter = FuelCalculatorModel.TotalCost / FuelCalculatorModel.Liters;
+            FuelCalculatorModel.CostPer100Km = FuelCalculatorModel.FuelConsumptionPer100Km * costPerLiter;
+            isCalculationPerformed = true;
+        }
+        else
+        {
+            FuelCalculatorModel.FuelConsumptionPer100Km = 0;
+            FuelCalculatorModel.CostPer100Km = 0;
+            isCalculationPerformed = false;
+        }
+    }
+}
